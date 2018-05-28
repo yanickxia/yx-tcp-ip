@@ -4,8 +4,6 @@ project(yx_ip C)
 set(CMAKE_C_STANDARD 99)
 
 
-
-
 #########
 # GTest #
 #########
@@ -19,4 +17,7 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 add_executable(yx_ip main.c)
 add_subdirectory(libs/arp)
 add_subdirectory(libs/base)
+add_subdirectory(unit_test)
 target_link_libraries(yx_ip BASE ARP)
+
+
