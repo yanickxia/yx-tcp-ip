@@ -1,8 +1,18 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 2.8)
 project(yx_ip C)
-
-include_directories(include)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(yx_ip main.c include/syshead.h include/arp.h src/arp.c include/utils.h src/utils.c unit_test/test_utils.c)
+add_subdirectory(arp)
+add_subdirectory(base)
+
+
+#########
+# GTest #
+#########
+enable_testing()
+add_subdirectory(libs/gtest-1.7.0)
+include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
+
+add_executable(yx_ip main.c)
+target_link_libraries(yx_ip BASE ARP)
