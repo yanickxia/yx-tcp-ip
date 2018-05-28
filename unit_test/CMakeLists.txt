@@ -16,9 +16,4 @@ add_executable(${TEST_PROJECT_NAME} ${LIBRARY_TESTS_SOURCE})
 target_link_libraries(${TEST_PROJECT_NAME} ARP BASE)
 target_link_libraries(${TEST_PROJECT_NAME} gtest gtest_main)
 
-add_test(
-        NAME
-        unit
-        COMMAND
-        ${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_BINDIR}/unit_tests
-)
+add_test(${TEST_PROJECT_NAME}, ${TEST_PROJECT_NAME})
